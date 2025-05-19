@@ -34,7 +34,7 @@
                <div class="user-profile" aria-label="Premium">
                   <img
                      src="https://www.shutterstock.com/image-vector/vector-bright-portrait-beautiful-brunette-600nw-2452267975.jpg"
-                     alt="">
+                     alt="" id="profileImage">
                </div>
               <div class="user-info">
                   <h4 id="name"></h4>
@@ -137,7 +137,7 @@
                      </li>
                      <li>
                         <label for="">Branch Name :</label>
-                        <h6>Westside Branch</h6>
+                        <h6 id="branchname">Westside Branch</h6>
                      </li>
                      <li>
                         <label for="">Agent Name :</label>
@@ -293,31 +293,39 @@
                         </div>
                         <div class="tab-pane fade" id="products" role="tabpanel" aria-labelledby="products-tab">
                            <div class="table-card">
-                              <table class="bank-table">
+                               <table class="bank-table">
                                  <thead>
                                     <tr>
-                                       <th>POLICY NAME</th>
+                                       <th>Account Type</th>
                                        <th>Account Number</th>
-                                       <th>Insured Amount</th>
-                                       <th>Tenure</th>
-                                       <th>INS - Premium</th>
-                                       <!-- <th>END DATE</th> -->
-                                       <th>STATUS</th>
+                                       <th>Remaining Balance</th>
+                                       <th>Interest</th>
+                                       <th>Card Number</th>
+                                       <th>Outstanding Balance</th>
+                                       <!-- <th>Payment Tenure</th> -->
+                                       <th>Status</th>
                                     </tr>
                                  </thead>
                                  <tbody>
                                     <tr>
-                                       <td id="insureAccount">
-                                         
-                                       </td>
-                                       <td id="Accountnumber"></td>
-                                       <td id="insuredAmount">500,000 AED</td>
-                                       <td id="Insure-Tenure">Monthly</td>
-                                       <td id="Insure-INS">24 May, 2020</td>
-                                      
-                                       <td><span class="status active">Active</span></td>
+                                       <td id="accountType"></td>
+                                       <td id="accnumber"></td>
+                                       <td id="remainingBalance"></td>
+                                       <td id="interest"></td>
+                                       <td id="cardNumber"></td>
+                                       <td><strong>24</strong>/05 Months</td>
+                                       <td><span class="status active">Acitve</span></td>
                                     </tr>
-                                    
+                                    <tr>
+                                      <td id="creditCardType"></td>
+                                       <td id="Accountnumber"></td>
+                                       <td id="creditCardBalance"></td>
+                                       <td id="creditCardInterest"></td>
+                                       <td id="creditcardNumber"></td>
+                                       <td><strong>24</strong>/05 Months</td>
+                                       <td><span class="status active">Acitve</span></td>
+                                    </tr>
+                                  
                                  </tbody>
                               </table>
                            </div>
@@ -497,44 +505,35 @@
                               <table class="bank-table">
                                  <thead>
                                     <tr>
-                                       <th>POLICY NAME</th>
+                                       <!-- <th>POLICY NAME</th>
                                        <th>INSURED NAME</th>
                                        <th>COVERAGE</th>
                                        <th>PREMIUM TYPE</th>
                                        <th>START DATE</th>
                                        <th>END DATE</th>
+                                       <th>STATUS</th> -->
+                                       <th>POLICY NAME</th>
+                                       <th>INSURED NAME</th>
+                                       <th>Account Number</th>
+                                       <th>Insured Amount</th>
+                                       <th>Tenure</th>
+                                       <th>INS - Premium</th>
+                                       <!-- <th>END DATE</th> -->
                                        <th>STATUS</th>
                                     </tr>
                                  </thead>
                                  <tbody>
                                     <tr>
-                                       <td>
-                                          <div class="item-group">
-                                             <span>#849856</span>
-                                             <label>Loan Request</label>
-                                          </div>
-                                       </td>
-                                       <td>Devon Lane</td>
-                                       <td>500,000 AED</td>
-                                       <td>Monthly</td>
-                                       <td>24 May, 2020</td>
-                                       <td>17 Oct, 2020</td>
+                                       <td id="insureAccount"></td>
+                                       <td id="personName"></td>
+                                       <td id="Accountnumber"></td>
+                                       <td id="insuredAmount">500,000 AED</td>
+                                       <td id="Insure-Tenure">Monthly</td>
+                                       <td id="Insure-INS">24 May, 2020</td>
+                                      
                                        <td><span class="status active">Active</span></td>
                                     </tr>
-                                    <tr>
-                                       <td>
-                                          <div class="item-group">
-                                             <span>#849856</span>
-                                             <label>Loan Request</label>
-                                          </div>
-                                       </td>
-                                       <td>Devon Lane</td>
-                                       <td>500,000 AED</td>
-                                       <td>Monthly</td>
-                                       <td>24 May, 2020</td>
-                                       <td>17 Oct, 2020</td>
-                                       <td><span class="status expired">Expired</span></td>
-                                    </tr>
+                                    
                                  </tbody>
                               </table>
                            </div>
@@ -894,23 +893,23 @@
                                  </div>
                                  <li>
                                     <label for="">Full Name</label>
-                                    <h4>Brooklyn Simmons</h4>
+                                    <h4 id="kyc_name">Brooklyn Simmons</h4>
                                  </li>
                                  <li>
                                     <label for="">DOB</label>
-                                    <h4>07 Oct, 2026</h4>
+                                    <h4 id="dob_kyc">07 Oct, 2026</h4>
                                  </li>
                                  <li>
                                     <label for="">Gender</label>
-                                    <h4>Male</h4>
+                                    <h4 id="gender_kyc">Male</h4>
                                  </li>
                                  <li class="verify">
                                     <label for="">Mobile Number</label>
-                                    <h4>+91 98765 43210</h4>
+                                    <h4 id="phone_kyc">+91 98765 43210</h4>
                                  </li>
                                  <li class="not-verify">
                                     <label for="">Email Address</label>
-                                    <h4>brooklyn@example.com</h4>
+                                    <h4 id="Email_kyc">brooklyn@example.com</h4>
                                  </li>
                               </ul>
                            </div>
@@ -1012,11 +1011,11 @@
                               <ul class="accordion-body kyc-data">
                                  <li class="verify">
                                     <label for="">Bank Account No.</label>
-                                    <h4>9876 1234 8765</h4>
+                                    <h4 id="bank_acc_no">9876 1234 8765</h4>
                                  </li>
                                  <li>
                                     <label for="">IFSC Code</label>
-                                    <h4>07643H32GYSD</h4>
+                                    <h4 id="bicCode_kyc">07643H32GYSD</h4>
                                  </li>
                                  <li>
                                     <label for="">Signature</label>
@@ -1040,47 +1039,39 @@
                </div>
                <!-- document information  -->
                <div class="tab-pane fade" id="documents" role="tabpanel" aria-labelledby="documents-tab">
-                  <div class="table-card">
-                     <table class="bank-table document">
-                        <thead>
-                           <tr>
-                              <th>Document Name</th>
-                              <th>Upload Date</th>
-                              <th>Verified On</th>
-                              <th>Status</th>
-                              <th>Action</th>
-                           </tr>
-                        </thead>
-                        <tbody>
+  <div class="table-card">
+    <table class="bank-table document">
+      <thead>
+        <tr>
+          <th>Document Name</th>
+          <th>Upload Date</th>
+          <th>Verified On</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="attachmentsBody">
+        <!-- Attachment rows will be populated here dynamically -->
+      </tbody>
+    </table>
+  </div>
 
-                           <tr>
-                              <td>
-                                 <div class="document-group">
-                                    <label>Passport.pdf</label>
-                                    <span>55.05 kB</span>
-                                 </div>
-                              </td>
-                              <td>8 Sep, 2020</td>
-                              <td>December 19, 2013</td>
-                              <td><span class="status verified"><i class='bx bxs-badge-check me-1'></i>Verified</span>
-                              </td>
-                              <td>
-                                 <div class="btn-group doc-action">
-                                    <button type="button" class="btn"
-                                       onclick="previewImage('https://www.edarabia.com/wp-content/uploads/2018/02/all-you-need-know-about-emirates-id.jpg', 'Passport Document')"
-                                       data-bs-toggle="modal" data-bs-target="#imageModal"><i
-                                          class='bx bx-show'></i></button>
-                                    <a type="button" class="btn"
-                                       href="https://www.edarabia.com/wp-content/uploads/2018/02/all-you-need-know-about-emirates-id.jpg"
-                                       download="https://www.edarabia.com/wp-content/uploads/2018/02/all-you-need-know-about-emirates-id.jpg"><i
-                                          class='bx bx-download'></i></a>
-                                 </div>
-                              </td>
-                           </tr>
-                        </tbody>
-                     </table>
-                  </div>
-               </div>
+  <!-- Modal for preview -->
+  <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitle">Preview</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img id="modalImage" class="img-fluid" src="" alt="Preview" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
                <!-- activities information  -->
                <div class="tab-pane fade" id="activities" role="tabpanel" aria-labelledby="activities-tab">
                   <div class="table-card pt-4">
