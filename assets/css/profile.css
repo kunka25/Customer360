@@ -1,0 +1,119 @@
+.personal-info-card,
+.contact-info-card,
+.banking-info-card {
+  border-radius: 12px;
+  border: 1px solid #e6e8ec;
+  background-color: #fff;
+  max-width: 100%;
+  margin: 0;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 550;
+  color: var(--text-main);
+  padding: 15px 20px;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--table-bg);
+}
+
+.action-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.card-header .bx {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+  background: var(--icon-bg);
+  color: var(--text);
+  border-radius: 10px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 40px;
+}
+
+.card-body {
+  padding: 25px 25px 35px;
+}
+
+.profile-cards {
+  background: white;
+  border-radius: 10px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+  gap: 20px 30px;
+}
+
+.contact-info-card .info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+  gap: 20px 30px;
+}
+
+.info-item {
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.info-item label {
+  font-size: 14px;
+  color: var(--text);
+  display: block;
+  margin-bottom: 5px;
+}
+
+.info-item p {
+  font-size: 16px;
+  color: var(--text-main);
+  font-weight: 500;
+  margin: 0;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icons a {
+  height: 35px;
+  width: 35px;
+  border-radius: 7.5px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  justify-content: center;
+}
+
+.social-icons a i {
+  text-align: center;
+  display: block;
+}
+
+.social-icons a.facebook {
+  background: #1877f2;
+}
+
+.social-icons a.linkedin {
+  background: #0077b5;
+}
+
+.social-icons a.twitter {
+  background: #1da1f2;
+}
+
+.social-icons a.dropbox {
+  background: #1da1f2;
+}

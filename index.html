@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>bank</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="./assets/css/profile.css">
+   <link rel="stylesheet" href="./assets/css/header.css">
+   <link rel="stylesheet" href="./assets/css/overview.css">
+   <link rel="stylesheet" href="./assets/css/chart.css">
+   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+   <header>
+      <div class="main-header">
+         <a href="http://" target="_blank" rel="noopener"><i class='bx bx-chevron-left'></i>Back to Home</a>
+         <div class="action-group">
+            <button class="switch" id="themeToggle">
+               <div class="circle"></div>
+             </button>
+            <button upcoming-count="03" class="upcoming" data-bs-toggle="modal"
+               data-bs-target="#upcoming-payment">Upcoming Payments</button>
+            <button class="notification" id="notification-btn"><i class='bx bx-bell'></i></button>
+         </div>
+      </div>
+      <div class="container-fluid">
+         <div class="d-flex justify-content-between">
+            <div class="user-card">
+               <div class="user-profile" aria-label="Premium">
+                  <img
+                     src="https://www.shutterstock.com/image-vector/vector-bright-portrait-beautiful-brunette-600nw-2452267975.jpg"
+                     alt="">
+               </div>
+               <div class="user-info">
+                  <h4>Bessie Cooper</h4>
+                  <label>Client ID : NBF005323</label>
+                  <div class="complition-status">
+                     <span>85% Profile Completed </span>
+                     <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25"
+                           aria-valuemin="0" aria-valuemax="100"></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <ul class="information-card">
+               <li area-label="Phone number" class="hover"><span>(307) 555-0133</span>
+                  <ol class="proof connection">
+                     <a href="#">
+                        <i class='bx bxs-phone-call'></i> Call via Phone
+                     </a>
+                     <a href="#">
+                        <img src="https://play-lh.googleusercontent.com/01KJYHefo1hmyWDVUZPPpdWhlnFp-rUpV9WJkbUVyJ7F1pE3XoPwZgxkXgWqd0TTBus" alt="" srcset=""> Message Via BOTIM
+                     </a>
+                     <a href="#">
+                        <i class='bx bx-message-rounded-dots'></i> Send a Message
+                     </a>
+                  </ol>
+               </li>
+               <li area-label="Email">debbie.baker@example.com</li>
+               <li area-label="Branch">Central Road, New Delhi</li>
+               <li class="hover" area-label="NID">
+                  <span>549360 307782 143893</span>
+                  <div class="proof">
+                     <img
+                        src="https://s3.ap-southeast-1.amazonaws.com/images.asianage.com/images/aa-Cover-vhobga052m2s92bvuc37ca5556-20170807014459.Medi.jpeg"
+                        alt="">
+                  </div>
+               </li>
+            </ul>
+            <div class="score-container">
+               <div class="score-card">
+                  <h4>Credit Score</h4>
+                  <div class="chart-containers">
+                     <canvas id="creditChart" width="250" height="125"></canvas>
+                     <div class="center-text">
+                        <h2 class="score" id="score">768</h2>
+                        <p class="date" id="updateDate">Updated Nov 24, 2022</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="score-card">
+                  <h4>Risk Factor</h4>
+                  <div class="chart-containers">
+                     <canvas id="riskChart" width="250" height="125"></canvas>
+                     <div class="center-text">
+                        <div class="score" id="riskScore">749</div>
+                        <div class="risk-label" id="riskLabel">Risk Factor: <span style="color:red">Low</span></div>
+                        <div class="crv-stars">
+                           CRV
+                           <span>★ ★ ★ ★ ☆</span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+            </div>
+         </div>
+      </div>
+   </header>
+   <section class="main-section">
+      <div class="row">
+         <div class="sidebar-panel">
+            <div class="left-group" id="sidebar">
+               <div class="sidebar scroll-to-top-btn">
+                  <div class="nav flex-column nav-pills sidebar-card">
+                     <button class="nav-link active" id="overview-tab" data-bs-toggle="pill"
+                        data-bs-target="#overview">Overview</button>
+
+                     <button class="nav-link" id="profile-tab" data-bs-toggle="pill"
+                        data-bs-target="#profile">Profile</button>
+
+                     <button class="nav-link" id="kyc-tab" data-bs-toggle="pill" data-bs-target="#kyc">KYC</button>
+
+                     <button class="nav-link" id="documents-tab" data-bs-toggle="pill"
+                        data-bs-target="#documents">Documents</button>
+
+                     <button class="nav-link" id="activities-tab" data-bs-toggle="pill"
+                        data-bs-target="#activities">Activities</button>
+
+                     <!-- <button class="nav-link" id="history-tab" data-bs-toggle="pill"
+                        data-bs-target="#history">History</button> -->
+                  </div>
+               </div>
+               <div class="last-visit">
+                  <h4>last Branch Visit</h4>
+                  <ul class="visit-info">
+                     <li>
+                        <label for="">Last Branch Visit Date :</label>
+                        <h6>2025-05-10</h6>
+                     </li>
+                     <li>
+                        <label for="">Branch Name :</label>
+                        <h6>Westside Branch</h6>
+                     </li>
+                     <li>
+                        <label for="">Agent Name :</label>
+                        <h6>Jane Smith</h6>
+                     </li>
+                     <li>
+                        <label for="">Reson for Visit :</label>
+                        <h6>Loan Inquiry</h6>
+                     </li>
+                  </ul>
+               </div>
+               <div class="notes">
+                  <h5>Notes card</h5>
+               </div>
+            </div>
+         </div>
+
+         <div class="main-card">
+            <div class="tab-content">
+               <!-- overview information  -->
+               <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+
+                  <div class="row mb-4">
+                     <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="chart-card">
+                           <div class="chart-header">
+                              <h4>Assets & Liabilities</h4>
+                              <div class="tabs">
+                                 <button id="assetsBtn" class="active">Assets</button>
+                                 <button id="liabilitiesBtn">Liabilities</button>
+                              </div>
+                           </div>
+                           <div class="chart-info">
+                              <div class="chart-container">
+                                 <canvas id="donutChart" width="200" height="200"></canvas>
+                                 <div class="chart-center">
+                                    <div>
+                                       <span class="value">0 </span>
+                                       <span class="currency">AED</span>
+                                    </div>
+                                    <label class="label">Assets</label>
+                                 </div>
+                              </div>
+                              <ul id="assetList" class="item-list"></ul>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="chart-card">
+                           <div class="chart-header">
+                              <div>
+                                 <h4>Money Tracker</h4>
+                                 <div class="custom-legend">
+                                    <div class="legend-item" onclick="toggleDataset(0, this)">
+                                       <div class="legend-box" style="background-color: #20c997;"></div>
+                                       <span>Credits</span>
+                                    </div>
+                                    <div class="legend-item" onclick="toggleDataset(1, this)">
+                                       <div class="legend-box" style="background-color: #2d6cdf;"></div>
+                                       <span>Debit</span>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="tabs">
+                                 <div class="tab active" data-type="monthly">Monthly</div>
+                                 <div class="tab" data-type="weekly">Weekly</div>
+                                 <div class="tab" data-type="yearly">Yearly</div>
+                              </div>
+                           </div>
+                           <div id="chartWrapper">
+                              <canvas id="moneyChart" height="305" width="750"></canvas>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="bank-info">
+                     <ul class="nav nav-pills horizontal-card" id="tablist" role="tablist">
+                        <li class="nav-item " role="presentation">
+                           <button class="nav-link active" id="loans-tab" data-bs-toggle="pill"
+                              data-bs-target="#loans">Loans</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                           <button class="nav-link" id="applications-tab" data-bs-toggle="pill"
+                              data-bs-target="#applications">Applications</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                           <button class="nav-link" id="overdue-tab" data-bs-toggle="pill"
+                              data-bs-target="#overdue">Overdue Activities</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                           <button class="nav-link" id="policies-tab" data-bs-toggle="pill"
+                              data-bs-target="#policies">Policies</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                           <button class="nav-link" id="cards-tab" data-bs-toggle="pill"
+                              data-bs-target="#cards">Cards</button>
+                        </li>
+                     </ul>
+
+                     <div class="tab-content" id="tabContent">
+                        <div class="tab-pane fade show active" id="loans" role="tabpanel" aria-labelledby="loans-tab">
+                           <div class="table-card">
+                              <table class="bank-table">
+                                 <thead>
+                                    <tr>
+                                       <th>Loan Type</th>
+                                       <th>Principal Amount</th>
+                                       <th>Interest Rate</th>
+                                       <th>Monthly Amount</th>
+                                       <th>Outstanding Balance</th>
+                                       <th>Payment Tenure</th>
+                                       <th>Status</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr>
+                                       <td>Consumer Load</td>
+                                       <td>$1,33,000</td>
+                                       <td>10%</td>
+                                       <td>$18,000.00</td>
+                                       <td>12,000,000</td>
+                                       <td><strong>24</strong>/05 Months</td>
+                                       <td><span class="status active">Acitve</span></td>
+                                    </tr>
+                                    <tr>
+                                       <td>Education Load</td>
+                                       <td>$11,70,000</td>
+                                       <td>20%</td>
+                                       <td>$11,000.00</td>
+                                       <td>12,000,000</td>
+                                       <td><strong>24</strong>/05 Months</td>
+                                       <td><span class="status active">Acitve</span></td>
+                                    </tr>
+                                    <tr>
+                                       <td>Car Load</td>
+                                       <td>$18,200</td>
+                                       <td>14%</td>
+                                       <td>$4,000.00</td>
+                                       <td>12,000,000</td>
+                                       <td><strong>24</strong>/05 Months</td>
+                                       <td><span class="status closed">Closed</span></td>
+                                    </tr>
+                                    <tr>
+                                       <td>Home Load</td>
+                                       <td>$11,70,000</td>
+                                       <td>20%</td>
+                                       <td>$11,000.00</td>
+                                       <td>12,000,000</td>
+                                       <td><strong>24</strong>/05 Months</td>
+                                       <td><span class="status closed">Closed</span></td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </div>
+                        </div>
+                        <div class="tab-pane fade" id="applications" role="tabpanel" aria-labelledby="applications-tab">
+                           <div class="table-card">
+                              <table class="bank-table">
+                                 <thead>
+                                    <tr>
+                                       <th>APPLICATION NAME</th>
+                                       <th>PRIORITY</th>
+                                       <th>SUBMITTED DATE</th>
+                                       <th>STATUS</th>
+                                       <th>REASON</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr>
+                                       <td>
+                                          <div class="item-group">
+                                             <span>#849856</span>
+                                             <label>Loan Request</label>
+                                          </div>
+                                       </td>
+                                       <td><span class="status low">High</span></td>
+                                       <td>24 May, 2020</td>
+                                       <td><span class="status active">Approved</span></td>
+                                       <td>-</td>
+                                    </tr>
+                                    <tr>
+                                       <td>
+                                          <div class="item-group">
+                                             <span>#849856</span>
+                                             <label>Account Opening</label>
+                                          </div>
+                                       </td>
+                                       <td><span class="status high">High</span></td>
+                                       <td>24 May, 2020</td>
+                                       <td><span class="status in-progress">In Progress</span></td>
+                                       <td>-</td>
+                                    </tr>
+
+                                 </tbody>
+                              </table>
+                           </div>
+                        </div>
+                        <div class="tab-pane fade" id="overdue" role="tabpanel" aria-labelledby="overdue-tab">
+                           <div class="activity">
+                              <div class="overdue-amount">
+                                 <h4><span>Overdue</span> 50,000 AED</h4>
+                                 <a href="http://">Send Reminder</a>
+                              </div>
+                              <div class="activites-card">
+                                 <div class="activites-card-header">
+                                    <div class="icon-section">
+                                       <img src="./assets/img/car.svg" alt="Car Icon" />
+                                       <div class="activities-head">
+                                          <div class="d-flex gap-2 align-items-center pb-2">
+                                             <span class="loan-id">#21789057</span>
+                                             <label class="status high">High</label>
+                                          </div>
+                                          <h4>Auto Loans Overdue</h4>
+                                       </div>
+                                    </div>
+
+                                    <div class="due-info">
+                                       <div class="due-date">
+                                          <i class='bx bx-calendar'></i>
+                                          <span>Sep, 2020 Due Date</span>
+                                       </div>
+                                       <label>Outstanding Amount (AED)</label>
+                                       <h4 class="outstanding-amount">900,000 AED</h4>
+                                    </div>
+                                    <div class="amount-box">
+                                       12,000 AED
+                                    </div>
+                                 </div>
+
+                                 <div class="activites-card-footer">
+                                    <div class="act-user-info">
+                                       <img class="user-img"
+                                          src="https://media.istockphoto.com/id/1682296067/photo/happy-studio-portrait-or-professional-man-real-estate-agent-or-asian-businessman-smile-for.jpg?s=612x612&w=0&k=20&c=9zbG2-9fl741fbTWw5fNgcEEe4ll-JegrGlQQ6m54rg="
+                                          alt="Darrell Steward" class="letter" />
+                                       <div class="user-name">Darrell Steward</div>
+                                    </div>
+                                    <div class="overdue-info">
+                                       <i class='bx bx-calendar'></i>
+                                       <label>-02 Days Overdue</label>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="activites-card">
+                                 <div class="activites-card-header">
+                                    <div class="icon-section">
+                                       <img src="./assets/img/car.svg" alt="Car Icon" />
+                                       <div class="activities-head">
+                                          <div class="d-flex gap-2 align-items-center pb-2">
+                                             <span class="loan-id">#21789057</span>
+                                             <label class="status high">High</label>
+                                          </div>
+                                          <h4>Auto Loans Overdue</h4>
+                                       </div>
+                                    </div>
+
+                                    <div class="due-info">
+                                       <div class="due-date">
+                                          <i class='bx bx-calendar'></i>
+                                          <span>Sep, 2020 Due Date</span>
+                                       </div>
+                                       <label>Outstanding Amount (AED)</label>
+                                       <h4 class="outstanding-amount">900,000 AED</h4>
+                                    </div>
+                                    <div class="amount-box">
+                                       12,000 AED
+                                    </div>
+                                 </div>
+
+                                 <div class="activites-card-footer">
+                                    <div class="act-user-info">
+                                       <img class="user-img"
+                                          src="https://media.istockphoto.com/id/1682296067/photo/happy-studio-portrait-or-professional-man-real-estate-agent-or-asian-businessman-smile-for.jpg?s=612x612&w=0&k=20&c=9zbG2-9fl741fbTWw5fNgcEEe4ll-JegrGlQQ6m54rg="
+                                          alt="Darrell Steward" class="letter" />
+                                       <div class="user-name">Darrell Steward</div>
+                                    </div>
+                                    <div class="overdue-info">
+                                       <i class='bx bx-calendar'></i>
+                                       <label>-02 Days Overdue</label>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="activites-card">
+                                 <div class="activites-card-header">
+                                    <div class="icon-section">
+                                       <img src="./assets/img/car.svg" alt="Car Icon" />
+                                       <div class="activities-head">
+                                          <div class="d-flex gap-2 align-items-center pb-2">
+                                             <span class="loan-id">#21789057</span>
+                                             <label class="status high">High</label>
+                                          </div>
+                                          <h4>Auto Loans Overdue</h4>
+                                       </div>
+                                    </div>
+
+                                    <div class="due-info">
+                                       <div class="due-date">
+                                          <i class='bx bx-calendar'></i>
+                                          <span>Sep, 2020 Due Date</span>
+                                       </div>
+                                       <label>Outstanding Amount (AED)</label>
+                                       <h4 class="outstanding-amount">900,000 AED</h4>
+                                    </div>
+                                    <div class="amount-box">
+                                       12,000 AED
+                                    </div>
+                                 </div>
+
+                                 <div class="activites-card-footer">
+                                    <div class="act-user-info">
+                                       <img class="user-img"
+                                          src="https://media.istockphoto.com/id/1682296067/photo/happy-studio-portrait-or-professional-man-real-estate-agent-or-asian-businessman-smile-for.jpg?s=612x612&w=0&k=20&c=9zbG2-9fl741fbTWw5fNgcEEe4ll-JegrGlQQ6m54rg="
+                                          alt="Darrell Steward" class="letter" />
+                                       <div class="user-name">Darrell Steward</div>
+                                    </div>
+                                    <div class="overdue-info">
+                                       <i class='bx bx-calendar'></i>
+                                       <label>-02 Days Overdue</label>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+
+
+
+                        </div>
+                        <div class="tab-pane fade" id="policies" role="tabpanel" aria-labelledby="policies-tab">
+                           <div class="table-card">
+                              <table class="bank-table">
+                                 <thead>
+                                    <tr>
+                                       <th>POLICY NAME</th>
+                                       <th>INSURED NAME</th>
+                                       <th>COVERAGE</th>
+                                       <th>PREMIUM TYPE</th>
+                                       <th>START DATE</th>
+                                       <th>END DATE</th>
+                                       <th>STATUS</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr>
+                                       <td>
+                                          <div class="item-group">
+                                             <span>#849856</span>
+                                             <label>Loan Request</label>
+                                          </div>
+                                       </td>
+                                       <td>Devon Lane</td>
+                                       <td>500,000 AED</td>
+                                       <td>Monthly</td>
+                                       <td>24 May, 2020</td>
+                                       <td>17 Oct, 2020</td>
+                                       <td><span class="status active">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                       <td>
+                                          <div class="item-group">
+                                             <span>#849856</span>
+                                             <label>Loan Request</label>
+                                          </div>
+                                       </td>
+                                       <td>Devon Lane</td>
+                                       <td>500,000 AED</td>
+                                       <td>Monthly</td>
+                                       <td>24 May, 2020</td>
+                                       <td>17 Oct, 2020</td>
+                                       <td><span class="status expired">Expired</span></td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </div>
+                        </div>
+                        <div class="tab-pane fade" id="cards" role="tabpanel" aria-labelledby="cards-tab">
+                           <div class="cards">
+                              <div class="cards-header">
+                                 <h4>Payment Methods</h4>
+                                 <span>Credit / Debit card</span>
+                              </div>
+                              <div class="row">
+                                 <div class="col-xl-6 col-md-6 col-lg-6 mb-4">
+                                    <div class="b-card mastercard-1">
+                                       <h6>Courtney Henry</h6>
+                                       <div class="card-img">
+                                          <h4>Mastercard **** 1234</h4>
+                                          <span>Card Expires at 09/26</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-xl-6 col-md-6 col-lg-6 mb-4">
+                                    <div class="b-card paypal">
+                                       <h6>Cody Fisher</h6>
+                                       <div class="card-img ">
+                                          <h4>PayPal card **** 1234</h4>
+                                          <span>Card Expires at 09/26</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-xl-6 col-md-6 col-lg-6 mb-4">
+                                    <div class="b-card visa">
+                                       <h6>Guy Hawkins</h6>
+                                       <div class="card-img ">
+                                          <h4>Visa **** 1234</h4>
+                                          <span>Card Expires at 09/26</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-xl-6 col-md-6 col-lg-6 mb-4">
+                                    <div class="card-img b-card-add">
+                                       <div>
+                                          <h4>Important Note!</h4>
+                                          <p>Please carefully read <a href="">product terms</a> adding your new payment
+                                             card</p>
+                                       </div>
+                                       <button class="btn btn-primary update-kyc">Add Card</button>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+               </div>
+               <!-- profile information -->
+               <div class="tab-pane fade profile-cards" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                  <ul class="nav nav-pills horizontal-card" id="tablist" role="tablist">
+                     <li class="nav-item " role="presentation">
+                        <button class="nav-link active" id="personal-tab" data-bs-toggle="pill"
+                           data-bs-target="#personal">Personal Information</button>
+                     </li>
+                     <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="referral-tab" data-bs-toggle="pill"
+                           data-bs-target="#referral">Referral Information</button>
+                     </li>
+                  </ul>
+
+                  <div class="tab-content" id="tabContent">
+                     <div class="tab-pane fade show active table-card pt-4" id="personal" role="tabpanel"
+                        aria-labelledby="personal-tab">
+                        <div class="card personal-info-card">
+                           <div class="card-header">
+                              <i class='bx bx-user'></i>
+                              Personal Information
+                           </div>
+                           <div class="card-body">
+                              <div class="info-grid">
+                                 <div class="info-item">
+                                    <label>Customer Name</label>
+                                    <p>Brooklyn Simmons</p>
+                                 </div>
+                                 <div class="info-item">
+                                    <label>Nationality</label>
+                                    <p>India</p>
+                                 </div>
+                                 <div class="info-item">
+                                    <label>Identity Number</label>
+                                    <p>13671 75xx xxxx</p>
+                                 </div>
+                                 <div class="info-item">
+                                    <label>Ex Identity Number</label>
+                                    <p>13671 75xx xxxx</p>
+                                 </div>
+                                 <div class="info-item">
+                                    <label>Passport</label>
+                                    <p>653518</p>
+                                 </div>
+                                 <div class="info-item">
+                                    <label>Issued Date</label>
+                                    <p>15 May 2020 8:00 am</p>
+                                 </div>
+                                 <div class="info-item">
+                                    <label>Date of Birth</label>
+                                    <p>17 Oct, 2020</p>
+                                 </div>
+                                 <div class="info-item">
+                                    <label>Income Range</label>
+                                    <p>40,000,000 - 60,000,000</p>
+                                 </div>
+
+                                 <div class="info-item">
+                                    <label>Age</label>
+                                    <p>29</p>
+                                 </div>
+                                 <div class="info-item">
+                                    <label>Gender</label>
+                                    <p>Male</p>
+                                 </div>
+
+                                 <!-- <div class="info-item">
+                                    <label>Issued Place</label>
+                                    <p>Great Falls, Maryland</p>
+                                 </div> -->
+                              </div>
+                           </div>
+                        </div>
+                        <div class="card contact-info-card">
+                           <div class="card-header">
+                              <i class='bx bxs-contact'></i>
+                              Contact Information
+                           </div>
+                           <div class="card-body">
+                              <div class="info-grid">
+                                 <div class="info-item">
+                                    <label>Mobile Number</label>
+                                    <p>(405) 555-0128</p>
+                                 </div>
+                                 <div class="info-item">
+                                    <label>Secondary Number</label>
+                                    <p>17 Oct, 2020</p>
+                                 </div>
+                                 <div class="info-item">
+                                    <label>Work at</label>
+                                    <p>India</p>
+                                 </div>
+                                 <div class="info-item">
+                                    <label>Industry</label>
+                                    <p>13671 75xx xxxx</p>
+                                 </div>
+                                 <div class="info-item">
+                                    <label>Role</label>
+                                    <p>Solution Manager</p>
+                                 </div>
+                                 <div class="info-item">
+                                    <label>Email Address</label>
+                                    <p>Male</p>
+                                 </div>
+
+                                 <div class="info-item">
+                                    <label>Permanent Address</label>
+                                    <p>Heiliggeistkirche, Spitalgasse 44, 3011, Bern, CHE</p>
+                                 </div>
+
+
+                                 <div class="info-item">
+                                    <label>Living Address</label>
+                                    <p>Time Out, Hirschengraben 13, 6003, Luzern, CHE</p>
+                                 </div>
+
+                                 <div class="info-item">
+                                    <label>Social Media</label>
+                                    <div class="social-icons">
+                                       <a href="#" target="_blank" class="facebook">
+                                          <i class="bx bxl-facebook"></i>
+                                       </a>
+                                       <a href="#" target="_blank" class="linkedin">
+                                          <i class="bx bxl-linkedin"></i>
+                                       </a>
+                                       <a href="#" target="_blank" class="twitter">
+                                          <i class="bx bxl-twitter"></i>
+                                       </a>
+                                       <a href="#" target="_blank" class="dropbox">
+                                          <i class="bx bxl-dropbox"></i>
+                                       </a>
+
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="card banking-info-card">
+                           <div class="card-header">
+                              <i class='bx bxs-bank'></i>
+                              Banking Information
+                           </div>
+                           <div class="card-body">
+                              <div class="info-grid">
+                                 <div class="info-item">
+                                    <label>Customer Id</label>
+                                    <p>Brooklyn Simmons</p>
+                                 </div>
+                                 <div class="info-item">
+                                    <label>Account Number</label>
+                                    <p>India</p>
+                                 </div>
+                                 <div class="info-item">
+                                    <label>Account Type</label>
+                                    <p>13671 75xx xxxx</p>
+                                 </div>
+                                 <div class="info-item">
+                                    <label>Branch</label>
+                                    <p>chennai</p>
+                                 </div>
+                                 <div class="info-item">
+                                    <label>Employment Status</label>
+                                    <p>Male</p>
+                                 </div>
+                                 <div class="info-item">
+                                    <label>Account Opening Date</label>
+                                    <p>13671 75xx xxxx</p>
+                                 </div>
+                                 <div class="info-item">
+                                    <label>Current Balance</label>
+                                    <p>15 May 2020 8:00 am</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="tab-pane fade" id="referral" role="tabpanel" aria-labelledby="referral-tab">
+                        <div class="table-card pt-4">
+                           <div class="overdue-amount">
+                              <h4><span>Referral Information</span></h4>
+                           </div>
+                           <table class="bank-table">
+                              <thead>
+                                 <tr>
+                                    <th>Referance Type</th>
+                                    <th>Referance Name</th>
+                                    <th>Phone Number</th>
+                                    <th>Email</th>
+                                    <th>Address</th>
+                                    <th>Issued Place</th>
+                                    <th>Issued Date</th>
+                                    <th>Remarks</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr>
+                                    <td>
+                                       <div class="referral-group">
+                                          <span>#86842345</span>
+                                          <label>Customer</label>
+                                       </div>
+                                    </td>
+                                    <td>Brooklyn Simmons</td>
+                                    <td>+91 98765 43210</td>
+                                    <td>brooklyn@example.com</td>
+                                    <td>Time Out, Hirschengraben 13, 6003, Luzern, CHE</td>
+                                    <td>India</td>
+                                    <td>17 Oct, 2020</td>
+                                    <td>Low credit score</td>
+                                 </tr>
+                                 <tr>
+                                    <td>
+                                       <div class="referral-group">
+                                          <span>#86842346</span>
+                                          <label>Partner</label>
+                                       </div>
+                                    </td>
+                                    <td>Courtney Henry</td>
+                                    <td>+91 98234 56789</td>
+                                    <td>courtney.h@example.com</td>
+                                    <td>22 Avenue de Paris, 75009, Paris, FRA</td>
+                                    <td>France</td>
+                                    <td>12 Nov, 2021</td>
+                                    <td>Documents pending</td>
+                                 </tr>
+                                 <tr>
+                                    <td>
+                                       <div class="referral-group">
+                                          <span>#86842347</span>
+                                          <label>Staff</label>
+                                       </div>
+                                    </td>
+                                    <td>Devon Lane</td>
+                                    <td>+91 99123 45678</td>
+                                    <td>devon.l@example.com</td>
+                                    <td>Flat 15, Park View, London NW1, UK</td>
+                                    <td>UK</td>
+                                    <td>03 Jan, 2022</td>
+                                    <td>Referral approved</td>
+                                 </tr>
+                                 <tr>
+                                    <td>
+                                       <div class="referral-group">
+                                          <span>#86842348</span>
+                                          <label>Customer</label>
+                                       </div>
+                                    </td>
+                                    <td>Wade Warren</td>
+                                    <td>+91 99555 66777</td>
+                                    <td>wade.w@example.com</td>
+                                    <td>45 Orchard Rd, Singapore 238895</td>
+                                    <td>Singapore</td>
+                                    <td>22 Aug, 2023</td>
+                                    <td>Duplicate entry</td>
+                                 </tr>
+                                 <tr>
+                                    <td>
+                                       <div class="referral-group">
+                                          <span>#86842349</span>
+                                          <label>Partner</label>
+                                       </div>
+                                    </td>
+                                    <td>Eleanor Pena</td>
+                                    <td>+91 90000 11122</td>
+                                    <td>eleanor.p@example.com</td>
+                                    <td>Jalan Tun Razak, Kuala Lumpur, MYS</td>
+                                    <td>Malaysia</td>
+                                    <td>15 Sep, 2022</td>
+                                    <td>Verification in progress</td>
+                                 </tr>
+                              </tbody>
+                           </table>
+
+                        </div>
+                     </div>
+                  </div>
+
+               </div>
+               <!-- kyc information -->
+               <div class="tab-pane fade" id="kyc" role="tabpanel" aria-labelledby="kyc-tab">
+                  <div class="kyc-card">
+                     <h4>KYC Verification</h4>
+                     <p>You have a 2 missing information</p>
+                     <button class="btn btn-primary">Update KYC</button>
+                     <div class="accordion" id="stepAccordion">
+                        <!-- Step 01 -->
+                        <div class="accordion-item">
+                           <h2 class="accordion-header" id="step1Header">
+                              <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                 data-bs-target="#step1Content" aria-expanded="true" aria-controls="step1Content">
+                                 <div class="steps">
+                                    <span>Step 01</span>
+                                    <h4 class="mb-0" status="Completed">Personal & Contact Information <label
+                                          class="pending">Pending</label></h4>
+                                 </div>
+                              </button>
+                           </h2>
+                           <div id="step1Content" class="accordion-collapse collapse show" aria-labelledby="step1Header"
+                              data-bs-parent="#stepAccordion">
+                              <ul class="accordion-body kyc-data">
+                                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    Mobile and Email are unverified. Verify via OTP to continue <strong>KYC.</strong>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                       aria-label="Close"></button>
+                                 </div>
+                                 <li>
+                                    <label for="">Full Name</label>
+                                    <h4>Brooklyn Simmons</h4>
+                                 </li>
+                                 <li>
+                                    <label for="">DOB</label>
+                                    <h4>07 Oct, 2026</h4>
+                                 </li>
+                                 <li>
+                                    <label for="">Gender</label>
+                                    <h4>Male</h4>
+                                 </li>
+                                 <li class="verify">
+                                    <label for="">Mobile Number</label>
+                                    <h4>+91 98765 43210</h4>
+                                 </li>
+                                 <li class="not-verify">
+                                    <label for="">Email Address</label>
+                                    <h4>brooklyn@example.com</h4>
+                                 </li>
+                              </ul>
+                           </div>
+                        </div>
+
+                        <!-- Step 02 -->
+                        <div class="accordion-item">
+                           <h2 class="accordion-header" id="step2Header">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                 data-bs-target="#step2Content" aria-expanded="false" aria-controls="step2Content">
+                                 <div class="steps">
+                                    <span>Step 02</span>
+                                    <h4 status="Pending">Identity & Address Verification <label
+                                          class="completed">Completed</label></h4>
+                                 </div>
+                              </button>
+                           </h2>
+                           <div id="step2Content" class="accordion-collapse collapse" aria-labelledby="step2Header"
+                              data-bs-parent="#stepAccordion">
+                              <ul class="accordion-body step-2">
+                                 <li>
+                                    <img
+                                       src="https://www.idtemplate.to/wp-content/uploads/2024/07/UADE-ID-card-front.png"
+                                       alt="" srcset="">
+                                    <div class="doc-info verify">
+                                       <h4>Identity card</h4>
+                                       <span>124KB</span>
+                                       <p>Verified On : December 19, 2013</p>
+                                    </div>
+                                    <div class="btn-group doc-action kyc-action">
+                                       <button type="button" class="btn"
+                                          onclick="previewImage('https://www.idtemplate.to/wp-content/uploads/2024/07/UADE-ID-card-front.png', 'Identity card')"
+                                          data-bs-toggle="modal" data-bs-target="#imageModal"><i
+                                             class="bx bx-show"></i></button>
+                                       <a type="button" class="btn"
+                                          href="https://www.edarabia.com/wp-content/uploads/2018/02/all-you-need-know-about-emirates-id.jpg"
+                                          download="https://www.edarabia.com/wp-content/uploads/2018/02/all-you-need-know-about-emirates-id.jpg"><i
+                                             class="bx bx-download"></i></a>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <img
+                                       src="https://qph.cf2.quoracdn.net/main-qimg-7f3b498298de050c42f54ee06fd8eeb1-lq"
+                                       alt="" srcset="">
+                                    <div class="doc-info not-verify">
+                                       <h4>Passport</h4>
+                                       <span>124KB</span>
+                                       <p>Verified On : December 19, 2013</p>
+                                    </div>
+                                    <div class="btn-group doc-action kyc-action">
+                                       <button type="button" class="btn"
+                                          onclick="previewImage('https://www.idtemplate.to/wp-content/uploads/2024/07/UADE-ID-card-front.png', 'Identity card')"
+                                          data-bs-toggle="modal" data-bs-target="#imageModal"><i
+                                             class="bx bx-show"></i></button>
+                                       <a type="button" class="btn"
+                                          href="https://www.edarabia.com/wp-content/uploads/2018/02/all-you-need-know-about-emirates-id.jpg"
+                                          download="https://www.edarabia.com/wp-content/uploads/2018/02/all-you-need-know-about-emirates-id.jpg"><i
+                                             class="bx bx-download"></i></a>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <img
+                                       src="https://www.pancardapp.com/blog/wp-content/uploads/2019/04/sample-pan-card.jpg"
+                                       alt="" srcset="">
+                                    <div class="doc-info">
+                                       <h4>Pan card</h4>
+                                       <span>124KB</span>
+                                       <p>Verified On : December 19, 2013</p>
+                                    </div>
+                                    <div class="btn-group doc-action kyc-action">
+                                       <button type="button" class="btn"
+                                          onclick="previewImage('https://www.idtemplate.to/wp-content/uploads/2024/07/UADE-ID-card-front.png', 'Identity card')"
+                                          data-bs-toggle="modal" data-bs-target="#imageModal"><i
+                                             class="bx bx-show"></i></button>
+                                       <a type="button" class="btn"
+                                          href="https://www.edarabia.com/wp-content/uploads/2018/02/all-you-need-know-about-emirates-id.jpg"
+                                          download="https://www.edarabia.com/wp-content/uploads/2018/02/all-you-need-know-about-emirates-id.jpg"><i
+                                             class="bx bx-download"></i></a>
+                                    </div>
+                                 </li>
+                              </ul>
+                           </div>
+                        </div>
+
+                        <!-- Step 03 -->
+                        <div class="accordion-item">
+                           <h2 class="accordion-header" id="step3Header">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                 data-bs-target="#step3Content" aria-expanded="false" aria-controls="step3Content">
+                                 <div class="steps">
+                                    <span>Step 03</span>
+                                    <h4 class="mb-0" status="Completed">Bank & Signature Verification <label
+                                          class="completed">Completed</label></h4>
+                                 </div>
+                              </button>
+                           </h2>
+                           <div id="step3Content" class="accordion-collapse collapse" aria-labelledby="step3Header"
+                              data-bs-parent="#stepAccordion">
+                              <ul class="accordion-body kyc-data">
+                                 <li class="verify">
+                                    <label for="">Bank Account No.</label>
+                                    <h4>9876 1234 8765</h4>
+                                 </li>
+                                 <li>
+                                    <label for="">IFSC Code</label>
+                                    <h4>07643H32GYSD</h4>
+                                 </li>
+                                 <li>
+                                    <label for="">Signature</label>
+                                    <img
+                                       src="https://onlinepngtools.com/images/examples-onlinepngtools/george-walker-bush-signature.png"
+                                       alt="">
+                                 </li>
+                                 <li class="no-verify">
+                                    <label for="">Recent Photograph</label>
+                                    <div class="profile-img">
+                                       <img
+                                          src="https://s3.ivisa.com/website-assets/blog/qatar-photo-passpot-traveling.webp"
+                                          alt="" srcset="">
+                                    </div>
+                                 </li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- document information  -->
+               <div class="tab-pane fade" id="documents" role="tabpanel" aria-labelledby="documents-tab">
+                  <div class="table-card">
+                     <table class="bank-table document">
+                        <thead>
+                           <tr>
+                              <th>Document Name</th>
+                              <th>Upload Date</th>
+                              <th>Verified On</th>
+                              <th>Status</th>
+                              <th>Action</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+
+                           <tr>
+                              <td>
+                                 <div class="document-group">
+                                    <label>Passport.pdf</label>
+                                    <span>55.05 kB</span>
+                                 </div>
+                              </td>
+                              <td>8 Sep, 2020</td>
+                              <td>December 19, 2013</td>
+                              <td><span class="status verified"><i class='bx bxs-badge-check me-1'></i>Verified</span>
+                              </td>
+                              <td>
+                                 <div class="btn-group doc-action">
+                                    <button type="button" class="btn"
+                                       onclick="previewImage('https://www.edarabia.com/wp-content/uploads/2018/02/all-you-need-know-about-emirates-id.jpg', 'Passport Document')"
+                                       data-bs-toggle="modal" data-bs-target="#imageModal"><i
+                                          class='bx bx-show'></i></button>
+                                    <a type="button" class="btn"
+                                       href="https://www.edarabia.com/wp-content/uploads/2018/02/all-you-need-know-about-emirates-id.jpg"
+                                       download="https://www.edarabia.com/wp-content/uploads/2018/02/all-you-need-know-about-emirates-id.jpg"><i
+                                          class='bx bx-download'></i></a>
+                                 </div>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <!-- activities information  -->
+               <div class="tab-pane fade" id="activities" role="tabpanel" aria-labelledby="activities-tab">
+                  <div class="table-card pt-4">
+                     <div class="overdue-amount">
+                        <h4><span>Interaction Activity</span></h4>
+                        <div class="btn-group gap-2 ">
+                           <div class="activities-action">
+                              <button type="button" class="btn dropdown-toggle " data-bs-toggle="dropdown"
+                                 aria-expanded="false">
+                                 <i class='bx bx-plus'></i>
+                              </button>
+                              <div class="dropdown-menu-end dropdown-menu-lg-start dropdown-menu">
+                                 <a href="#">
+                                    <i class='bx bxs-phone-call'></i> Call
+                                 </a>
+                                 <a href="#">
+                                    <i class='bx bx-note'></i> Tasks
+                                 </a>
+                                 <a href="#">
+                                    <i class='bx bx-slideshow'></i> Meeting
+                                 </a>
+                              </div>
+                           </div>
+                           <select class="form-select" aria-label="date">
+                              <option selected>Last 30 days</option>
+                              <option value="1">Last Week</option>
+                              <option value="2">Last Month</option>
+                           </select>
+                        </div>
+                     </div>
+                     <table class="bank-table">
+                        <thead>
+                           <tr>
+                              <th>Request Type</th>
+                              <th>Interaction Topic</th>
+                              <th>Contact Date</th>
+                              <th>Handled By</th>
+                              <th>Contact Source</th>
+                              <th>Request Status</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td><b>Account Update</b></td>
+                              <td>Address Change</td>
+                              <td>15 May 2020 10:00 pm</td>
+                              <td>Esther Howard</td>
+                              <td>Phone Call</td>
+                              <td><span class="status completed">Completed</span></td>
+                           </tr>
+                           <tr>
+                              <td><b>Loan Inquiry</b></td>
+                              <td>Personal Loan Eligibility</td>
+                              <td>15 May 2020 6:00 pm</td>
+                              <td>Ralph Edwards</td>
+                              <td>Mobile App</td>
+                              <td><span class="status in-progress">In Progress</span></td>
+
+                           </tr>
+                           <tr>
+                              <td><b>Card Services</b></td>
+                              <td>Credit Card Block Request</td>
+                              <td>15 May 2020 5:00 pm</td>
+                              <td>Cody Fisher</td>
+                              <td>Branch Visit</td>
+                              <td><span class="status escalated">Escalated</span></td>
+
+                           </tr>
+                           <tr>
+                              <td><b>General Inquiry</b></td>
+                              <td>FD Interest Rates</td>
+                              <td>15 May 2020 8:00 pm</td>
+                              <td>Cameron Williamson</td>
+                              <td>Email</td>
+                              <td><span class="status no-start">Yet to start</span></td>
+
+                           </tr>
+                           <tr>
+                              <td><b>Complaint</b></td>
+                              <td>Unauthorized Transaction</td>
+                              <td>15 May 2020 9:00 pm</td>
+                              <td>Marvin McKinney</td>
+                              <td>Website Chat</td>
+                              <td><span class="status closed">Closed</span></td>
+
+                           </tr>
+                           <tr>
+                              <td><b>Complaint</b></td>
+                              <td>Unauthorized Transaction</td>
+                              <td>15 May 2020 9:00 pm</td>
+                              <td>Marvin McKinney</td>
+                              <td>Website Chat</td>
+                              <td><span class="status completed">Resolved</span></td>
+
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <!-- history  -->
+               <!-- <div class="tab-pane fade" id="history" role="tabpanel" aria-labelledby="history-tab">
+                  <div class="table-card history">
+                  </div>
+               </div> -->
+               <!-- close -->
+            </div>
+         </div>
+      </div>
+   </section>
+   <div class="modal fade" id="upcoming-payment" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog ">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h5 class="modal-title">Upcoming Payments / Bills</h5>
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+               <div class="upcoming-payment-card">
+                  <div class="upcoming-payment-header">
+                     <div class="upcoming-payment-details auto-loan">
+                        <h4>Auto Loans Overdue</h4>
+                        <p>Due Amount : <span class="amount">5,00,000 AED</span></p>
+                        <p>Min Due Amount : <span class="amount">3,00,000 AED</span></p>
+                     </div>
+                     <div class="due-badge">Due in 4 Days</div>
+                  </div>
+                  <div class="upcoming-payment-footer">
+                     <a href="#" class="upcoming-payment-id">#A4753289FG</a>
+                     <h6 class="due-date">
+                        <i class="bx bx-calendar"></i> Due Date : 07 Aug 2025
+                     </h6>
+                  </div>
+               </div>
+               <div class="upcoming-payment-card">
+                  <div class="upcoming-payment-header">
+                     <div class="upcoming-payment-details auto-loan">
+                        <h4>Credit Card Bill</h4>
+                        <p>Due Amount : <span class="amount">5,00,000 AED</span></p>
+                        <p>Min Due Amount : <span class="amount">3,00,000 AED</span></p>
+                     </div>
+                     <div class="due-badge">Due in 4 Days</div>
+                  </div>
+                  <div class="upcoming-payment-footer">
+                     <a href="#" class="upcoming-payment-id">Card xxxx xxxx 3212</a>
+                     <h6 class="due-date">
+                        <i class="bx bx-calendar"></i> Due Date : 07 Aug 2025
+                     </h6>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- image preview -->
+   <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+         <div class="modal-content">
+            <div class="modal-header  bg-white">
+               <h5 class="modal-title" id="modalTitle">Document Preview </h5>
+               <a id="downloadBtn" class="btn btn-light ms-2" href="#" download><i class='bx bx-download'></i></a>
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body bg-white">
+               <img id="modalImage" src="" alt="Preview" class="img-fluid img-thumbnail" />
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- notification card  -->
+  <div class="notification-sidebar" id="notification_sidebar">
+   <button id="closeBtn">&times;</button>
+   <div class="not-found">
+      <img src="./assets/img/bell.png" alt="" srcset=""/>
+      <h4>Notification information </h4>
+   </div>
+   </div>
+   <!-- close  -->
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script src="./assets/js/bar.js"></script>
+   <script src="./assets/js/donut.js"></script>
+   <script src="./assets/js/credit.js"></script>
+   <script src="./assets/js/main.js"></script>
+</body>
+
+</html>

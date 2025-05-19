@@ -1,0 +1,227 @@
+
+
+header {
+   background: var(--header-bg);
+   padding: 100px 50px 35px;
+}
+
+ .main-header {
+   position: absolute;
+   top: 0;
+   left: 0;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 10px 40px;
+   border-bottom: 1px solid var(--border-color);
+   width: 100%;
+}
+
+.main-header a {
+   text-decoration: none;
+   font-size: 16px;
+   display: flex;
+   align-items: center;
+}
+.main-header a .bx{
+font-size: 25px;
+}
+.main-header button.upcoming {
+   border-radius: 7px;
+   background: var(--header-bg);
+   padding: 7px 10px;
+   border: 1px solid var(--border-color);
+   font-size: 14px;
+   outline: none;
+   color: var(--text);
+   position: relative;
+   padding-right: 50px;
+}
+.main-header button.upcoming:hover{
+   background: #d6d9e4;
+}
+.upcoming:first-child {
+   position: relative;
+   padding-right: 50px !important;
+} 
+.upcoming::after {
+   content: attr(upcoming-count);
+   color: white;
+   font-size: 10px;
+   z-index: 999;
+   position: absolute;
+   background: red;
+   display: block;
+   font-style: normal;
+   font-weight: 500;
+   top: 8.5px;
+   right: 8px;
+   padding: 3px 10px;
+   border-radius: 25px;
+   line-height: normal;
+}
+ .main-header button.notification {
+   outline: none;
+   border: none;
+   background: var(--header-bg);
+   color: var(--text-main);
+   padding: 7px 10px;
+   font-size: 20px;
+}
+
+.user-card {
+   position: relative;
+   display: flex;
+   gap: 20px;
+}
+
+.user-profile {
+   position: relative;
+   box-sizing: border-box;
+   height: 110px;
+   width: 110px;
+}
+
+.user-profile img {
+   border-radius: 50%;
+   border: 5px solid var(--prof);
+   object-fit: cover;
+   height: 110px;
+   width: 110px;
+   box-shadow: 0px 0px 0px 0.855px var(--light-gray, #E9E9E9);
+}
+
+.user-profile::after {
+   content: attr(aria-label);
+   color: black;
+   font-size: 12px;
+   padding: 3px 15px;
+   border-radius: 25px;
+   margin-left: 8px;
+   display: inline-block;
+   border: 1px solid #ffffff;
+   background: #FFC02E;
+   position: absolute;
+   left: 45%;
+   bottom: -5px;
+   transform: translateX(-50%);
+}
+.hover{
+   cursor: pointer;
+}
+.hover:hover .proof{
+   opacity: 1;top: 50px;
+   /* padding: 10px; */
+   height: auto;
+}
+.proof {
+   border: 1px solid #ececec;
+   padding: 10px;
+   background: rgb(255 255 255);
+   position: absolute;
+   width: 120%;
+   height: 0;
+   overflow: hidden;
+   z-index: 99;
+   left: 0;
+   top: 50px;
+   /* box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px; */
+   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+   transition: ease-in-out all 0.4s;
+   opacity: 0;
+   list-style-type: none;
+   border-radius: 10px;
+}
+.proof img{
+   width: 100%;
+   height: auto;
+   border-radius: 5px;
+   border: 1px solid #f6f6f6;
+}
+.user-info {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
+.user-info h4{
+   margin: 0;
+   color: var(--text-main);
+}
+ul.information-card {
+   position: relative;
+   box-sizing: border-box;
+   display: grid;
+   list-style-type: none;
+   grid-template-columns: 50% 50%;
+   padding: 0;
+   margin: 0;
+   gap: 25px 25px;
+   height: max-content;
+}
+
+ul.information-card li {
+   position: relative;
+   padding-left: 60px;
+   display: block;
+   color: var(--text-main);
+   align-items: center;
+   padding-top: 20px;
+}
+
+ul.information-card li::after {
+   content: attr(area-label);
+   color: var(--text);
+   font-size: 14px;
+   z-index: 5;
+   position: absolute;
+   display: block;
+   font-style: normal;
+   font-weight: normal;
+   top: 0;
+   line-height: normal;
+}
+
+ul.information-card li::before {
+   content: '';
+   background-image: var(--icon);
+   position: absolute;
+   height: 45px;
+   width: 45px;
+   overflow: hidden;
+   left: 0;
+   top: 0;
+   background-size: 200px;
+   background-repeat: no-repeat;
+}
+
+ul.information-card li:first-child::before {
+   background-position: 0 0px;
+}
+
+ul.information-card li:nth-child(2)::before {
+   background-position: -52px 0px;
+}
+
+ul.information-card li:nth-child(3)::before {
+   background-position: -104px 0px;
+}
+
+ul.information-card li:nth-child(4)::before {
+   background-position: -158px 0px;
+}
+
+.complition-status {
+   display: flex;
+   gap: 7px;
+   flex-direction: column;
+}
+.complition-status span, .user-info label{
+   color: #6D779D;
+   font-size: 14px;
+   font-weight: 400;
+}
+
+.progress {
+   height: 0.5rem;
+   background: var(--progress-bg);
+}
