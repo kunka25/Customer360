@@ -1,3 +1,4 @@
+
 function previewImage(imageSrc, docName) {
    document.getElementById('modalImage').src = imageSrc;
    document.getElementById('modalTitle').textContent = docName;
@@ -127,7 +128,10 @@ function fetchAccount() {
 
             document.getElementById("name").textContent = contactName;
             document.getElementById("Name").textContent = contactName;
+            document.getElementById("personName").textContent = contactName;
+            document.getElementById("kyc_name").textContent = contactName;
          document.getElementById("accountNumber").innerText = Deals.Account_No || "N/A";
+         document.getElementById("bank_acc_no").innerText = Deals.Account_No || "N/A";
           document.getElementById("cusId").innerText = Deals.Account_No || "N/A";
             document.getElementById('formContainer').style.display = 'none';
             document.getElementById('Container').style.display = 'block';
@@ -164,6 +168,8 @@ if (!isNaN(lastDigit)) {
                         document.getElementById("Email").textContent = contact.Email || "N/A";
                         document.getElementById("email").textContent = contact.Email || "N/A";
                         document.getElementById("gender").textContent = contact.Gender || "N/A";
+                        document.getElementById("phone_kyc").textContent = contact.Mobile || "N/A";
+                        document.getElementById("Email_kyc").textContent = contact.Email || "N/A";
                         const addressParts = [
     contact.Address_Line_1,               
     contact.City_District,     
@@ -191,9 +197,10 @@ document.getElementById("permanentAddress").textContent = fullAddress1 || "N/A";
                                 if (kycResponse && kycResponse.data && kycResponse.data.length > 0) {
                                     let kycData = kycResponse.data[0];
                                     document.getElementById("dob").textContent = kycData.Date_of_Birth || "N/A";
+                                    document.getElementById("dob_kyc").textContent = kycData.Date_of_Birth || "N/A";
                                     document.getElementById("occupation").textContent = kycData.Occupation || "N/A";
                                     document.getElementById("nationality").textContent = kycData.Nationality || "N/A";
-                                    document.getElementById("dob").textContent = kycData.Date_of_Birth || "N/A";
+                                    document.getElementById("gender_kyc").textContent = kycData.Date_of_Birth || "N/A";
 
 // Calculate and display age
 if (kycData.Date_of_Birth) {
@@ -273,6 +280,80 @@ if (data && data.data && data.data.length > 0) {
                     console.error("Error fetching full record data:", error);
                 });
             }
+            if (data && data.data && data.data.length > 0) {
+  var dealId = data.data[0].id;
+
+  ZOHO.CRM.API.getRelatedRecords({
+    Entity: "Deals",
+    RecordID: dealId,
+    RelatedList: "Attachments",
+    page: 1,
+    per_page: 200
+  }).then(function(response) {
+    console.log("Deal Attachments:", response);
+
+    if (response && response.data) {
+      populateAttachments(response.data);
+    }
+  });
+}
+
+function populateAttachments(attachments) {
+  const tbody = document.getElementById("attachmentsBody");
+  tbody.innerHTML = ""; // clear existing
+
+  if (!attachments || attachments.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="5">No attachments found.</td></tr>`;
+    return;
+  }
+
+  attachments.forEach(file => {
+    const fileName = file.File_Name || "Unnamed";
+    const fileSize = file.Size ? (parseInt(file.Size) / 1024).toFixed(2) + " kB" : "—";
+    const uploadDate = file.Created_Time ? new Date(file.Created_Time).toLocaleDateString() : "—";
+    const previewUrl = file.$previewUrl || "#";
+    const downloadUrl = file.$download_url || "#";
+
+    const tr = document.createElement("tr");
+
+    tr.innerHTML = `
+      <td>
+        <div class="document-group">
+          <label>${fileName}</label>
+          <span>${fileSize}</span>
+        </div>
+      </td>
+      <td>${uploadDate}</td>
+      <td>20 May 2025</td>
+      <td>
+        <span class="status verified">
+          <i class='bx bxs-badge-check me-1'></i>Verified
+        </span>
+      </td>
+      <td>
+        <div class="btn-group doc-action">
+          <button type="button" class="btn"
+            onclick="previewImage('${previewUrl}', '${fileName}')"
+            data-bs-toggle="modal" data-bs-target="#imageModal">
+            <i class='bx bx-show'></i>
+          </button>
+          <a type="button" class="btn" href="${downloadUrl}" download>
+            <i class='bx bx-download'></i>
+          </a>
+        </div>
+      </td>
+    `;
+
+    tbody.appendChild(tr);
+  });
+}
+
+// Image preview function (assumes you have modal with id="imageModal")
+function previewImage(url, title) {
+  document.getElementById("modalImage").src = url;
+  document.getElementById("modalTitle").innerText = title;
+}
+
         } else {
             validation_error.innerHTML = "No customer found with that ID.";
             input_error.style.border = "1px solid red";
@@ -306,13 +387,14 @@ ZOHO.CRM.FUNCTIONS.execute(func_name, req_data)
                     var accountData = JSON.parse(accountDataString);
                     if (accountData && accountData.Account_Number) {
                         document.getElementById("branchName").innerText = accountData.Branch_Name || "N/A";
+                        document.getElementById("branchname").innerText = accountData.Branch_Name || "N/A";
                         document.getElementById("branch").innerText = accountData.Branch_Name || "N/A";
                         document.getElementById("status").innerText = accountData.Account_Status || "N/A";
                         document.getElementById("openingDate").innerText = accountData.Opening_Date || "N/A";
                         document.getElementById("accType").innerText = accountData.Account_Type || "N/A";
                         document.getElementById("bicCode").innerText = accountData.BIC_Code || "N/A";
                         document.getElementById("NID").innerText = accountData.Nation_ID || "N/A";
-
+                        document.getElementById("bicCode_kyc").innerText = accountData.Nation_ID || "N/A";
                     }
                 }
     }
@@ -368,6 +450,13 @@ ZOHO.CRM.FUNCTIONS.execute(func_name, req_data)
                 }
                 
 })
+
+
+
+
+
+ 
+}
 
 
 
