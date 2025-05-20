@@ -1,0 +1,183 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: url("../img/banner.jpg");
+    background-size: cover;
+    background-position: left;
+    position: relative;
+}
+
+body::after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(93.2deg, #9eb8ff9d 14.4%, #0070C0 90.8%);
+    top: 0;
+    left: 0;
+    z-index: -1;
+    position: absolute;
+}
+
+.customer-id {
+    position: fixed;
+    width: 33%;
+    background: #f1f1f1;
+    right: 10%;
+    top: 50%;
+    /* height: 53%; */
+    transform: translateY(-50%);
+    /* text-align: center; */
+    display: block;
+    margin: auto;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.customer-info {
+    height: inherit;
+    padding: 50px 50px 20px;
+    width: 100%;
+    background-color: #eeeeee;
+    color: #0070C0;
+}
+
+.customer-info .btn-group {
+    /* border-radius: 50px !important;
+        background: rgb(255, 255, 255);
+        padding: 4px; */
+    gap: 10px;
+}
+
+.customer-info .btn-group .btn {
+    border-radius: 50px !important;
+    padding: 6px 25px;
+    font-size: 14px;
+}
+
+.customer-info h6 {
+    font-size: 35px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.customer-info p {
+    font-size: 15px;
+    color: #7b7b7b;
+    margin-bottom: 30px;
+}
+
+.customer-card {
+    border-radius: 25px 25px 0 0;
+    background: white;
+    height: 100%;
+    padding: 40px 50px;
+    /* display: flex;
+        flex-direction: column;
+        gap: 20px; */
+}
+
+.form-control {
+    padding: 12px 20px;
+    margin-bottom: 35px;
+}
+
+.forgot {
+    display: block;
+    text-align: end;
+    text-decoration: none;
+    margin-bottom: 20px;
+    font-size: 14px;
+    position: relative;
+    padding-right: 25px;
+}
+
+.forgot:hover {
+    text-decoration: underline;
+}
+
+.forgot::after {
+    content: '';
+    background: url(../img/forgot.svg) no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 18px;
+    width: 18px;
+    right: 0;
+    position: absolute;
+}
+
+.form-group {
+    /* padding: 0 25px; */
+    position: relative;
+}
+
+.form-label {
+    margin-bottom: 15px !important;
+    display: block;
+    font-size: 15px;
+}
+
+.form-label::after {
+    color: red;
+    content: attr(last-txt);
+}
+
+.customer-card h4 {
+    font-size: 28px;
+}
+
+.cta-btn {
+    padding: 17px 20px;
+    background: #0070C0;
+    color: white;
+    width: 100%;
+    display: block;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+::placeholder {
+    color: rgb(188, 188, 188) !important
+}
+
+.customer-banner {
+    position: relative;
+}
+
+/* .customer-banner img {
+        position: fixed;
+        height: auto;
+        width: 40%;
+        top: 45%;
+        left: 10%;
+        transform: translate(-10%, -50%);
+    } */
+.val_msg {
+    position: absolute;
+    bottom: -25px;
+    color: red;
+    font-size: 13px;
+    padding-left: 18px;
+    transition: all ease 0.5s;
+}
+
+.val_msg::before {
+    position: absolute;
+    content: 'i';
+    height: 13px;
+    width: 13px;
+    background: red;
+    border-radius: 50%;
+    top: 3px;
+    left: 0;
+    color: white;
+    text-align: center;
+    line-height: 13px;
+    font-size: 10px;
+    font-weight: 600;
+}
+
