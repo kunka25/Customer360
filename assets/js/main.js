@@ -1,12 +1,18 @@
-
 function previewImage(imageSrc, docName) {
-   document.getElementById('modalImage').src = imageSrc;
-   document.getElementById('modalTitle').textContent = docName;
-   const downloadBtn = document.getElementById('downloadBtn');
-   // if download doc
-   downloadBtn.href = imageSrc;
-   // downloadBtn.download = docName.replace(/\s+/g, '_') + '.jpg';
+  const modalImage = document.getElementById('modalImage');
+  const modalTitle = document.getElementById('modalTitle');
+  const downloadBtn = document.getElementById('downloadBtn');
+
+  modalImage.src = imageSrc;
+  modalTitle.textContent = docName;
+
+  // Preserve original file extension if possible
+  const fileExtension = imageSrc.split('.').pop().split(/\#|\?/)[0];
+  const safeFileName = docName.replace(/\s+/g, '_').replace(/[^\w.-]/g, '');
+  downloadBtn.href = imageSrc;
+  downloadBtn.download = `${safeFileName}.${fileExtension}`;
 }
+
 // scroll 
 window.addEventListener('scroll', function () {
    const sidebar = document.getElementById('sidebar');
@@ -168,8 +174,11 @@ if (!isNaN(lastDigit)) {
                         document.getElementById("Email").textContent = contact.Email || "N/A";
                         document.getElementById("email").textContent = contact.Email || "N/A";
                         document.getElementById("gender").textContent = contact.Gender || "N/A";
+                        document.getElementById("gender_kyc").textContent = contact.Gender || "N/A";
                         document.getElementById("phone_kyc").textContent = contact.Mobile || "N/A";
                         document.getElementById("Email_kyc").textContent = contact.Email || "N/A";
+                        document.getElementById("riskLabel").textContent = contact.Risk_Factor || "N/A";
+                        document.getElementById("score").textContent = contact.Credit_Score || "N/A";
                         const addressParts = [
     contact.Address_Line_1,               
     contact.City_District,     
@@ -200,7 +209,7 @@ document.getElementById("permanentAddress").textContent = fullAddress1 || "N/A";
                                     document.getElementById("dob_kyc").textContent = kycData.Date_of_Birth || "N/A";
                                     document.getElementById("occupation").textContent = kycData.Occupation || "N/A";
                                     document.getElementById("nationality").textContent = kycData.Nationality || "N/A";
-                                    document.getElementById("gender_kyc").textContent = kycData.Date_of_Birth || "N/A";
+                                   
 
 // Calculate and display age
 if (kycData.Date_of_Birth) {
@@ -313,7 +322,7 @@ function populateAttachments(attachments) {
     const uploadDate = file.Created_Time ? new Date(file.Created_Time).toLocaleDateString() : "—";
     const previewUrl = file.$previewUrl || "#";
     const downloadUrl = file.$download_url || "#";
-
+console.log(downloadUrl,"test");
     const tr = document.createElement("tr");
 
     tr.innerHTML = `
@@ -457,9 +466,3 @@ ZOHO.CRM.FUNCTIONS.execute(func_name, req_data)
 
  
 }
-
-
-
- 
-}
-
